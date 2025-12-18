@@ -1,5 +1,7 @@
-﻿using Backend_modul_1_Code_challenges__Fundament_.Classes.Calculator;
+﻿using System.Runtime.InteropServices;
+using Backend_modul_1_Code_challenges__Fundament_.Classes.Calculator;
 using Backend_modul_1_Code_challenges__Fundament_.Classes.Print;
+using Backend_modul_1_Code_challenges__Fundament_.Classes.Variable;
 using Spectre.Console;
 
 namespace Backend_modul_1_Code_challenges__Fundament_;
@@ -8,8 +10,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        PrintValues printValues = new PrintValues();
-        Cli cli = new Cli();
+        var printValues = new PrintValues();
+        var cli = new Cli();
 
         while (true)
         {
@@ -18,13 +20,17 @@ class Program
             var operation = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
                     .Title("[bold]Choose your Operation[/]?")
-                    .AddChoices(new[] { "Variable", "Calculator", "Exit" })
+                    .AddChoices(new[] { "Normal Variable", "Array Variable", "Calculator", "Exit" })
             );
 
             switch (operation)
             {
-                case "Variable":
-                    printValues.Table();
+                case "Normal Variable":
+                    printValues.ValueToTable();
+                    break;
+
+                case "Array Variable":
+                    printValues.ValueToArray();
                     break;
 
                 case "Calculator":
