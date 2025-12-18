@@ -1,6 +1,5 @@
-﻿using Backend_modul_1_Code_challenges__Fundament_.Classes;
-using Backend_modul_1_Code_challenges__Fundament_.Classes.Calculator;
-using Backend_modul_1_Code_challenges__Fundament_.Classes.Variables;
+﻿using Backend_modul_1_Code_challenges__Fundament_.Classes.Calculator;
+using Backend_modul_1_Code_challenges__Fundament_.Classes.Print;
 using Spectre.Console;
 
 namespace Backend_modul_1_Code_challenges__Fundament_;
@@ -9,7 +8,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Variables variable = new Variables();
+        PrintValues printValues = new PrintValues();
         Cli cli = new Cli();
 
         while (true)
@@ -25,7 +24,7 @@ class Program
             switch (operation)
             {
                 case "Variable":
-                    variable.Table();
+                    printValues.Table();
                     break;
 
                 case "Calculator":

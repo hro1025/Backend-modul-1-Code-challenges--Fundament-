@@ -8,9 +8,9 @@ public class Cli
     {
         CalculatorMath myCalculator = new CalculatorMath();
 
-        bool keepRunning = true;
+        bool keepMainRunning = true;
 
-        while (keepRunning)
+        while (keepMainRunning)
         {
             // Input and safe of the value
             double inputFirstNumber = AnsiConsole.Ask<double>("First Number: ");
