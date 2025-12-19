@@ -43,7 +43,7 @@ public class PrintValues
 
         for (int i = 0; i < maxColumns; i++)
         {
-            table.AddColumn($"Col {i}");
+            table.AddColumn($" {i}");
         }
 
         table.AddRow(stringArray);
@@ -53,5 +53,50 @@ public class PrintValues
         table.AddRow(boolArray.Select(x => x.ToString()).ToArray());
 
         AnsiConsole.Write(table);
+    }
+
+    public void ValuesToList()
+    {
+        var values = new Values();
+
+        List<object> valuesToList =
+        [
+            values.stringVariable,
+            values.intVariable,
+            values.doubleVariable,
+            values.charVariable,
+            values.boolVariable,
+        ];
+
+        var table = new Table();
+        table.Title("List Values");
+        table.Border = TableBorder.Heavy;
+        table.ShowRowSeparators();
+        table.AddColumn("Type");
+        table.AddColumn("Value");
+
+        foreach (var item in valuesToList)
+        {
+            table.AddRow(item.GetType().Name, item.ToString()!);
+        }
+        AnsiConsole.Write(table);
+    }
+
+    public void ValuesToDictionary()
+    {
+        var values = new Values();
+        var Dictionary = new Dictionary<string, object>
+        {
+            { "string", $"{values.stringVariable}" },
+            { "int", values.intVariable },
+            { "double", values.doubleVariable },
+            { "char", values.charVariable },
+            { "bool", values.boolVariable },
+        };
+
+        foreach (var item in Dictionary)
+        {
+            Console.WriteLine(item);
+        }
     }
 }

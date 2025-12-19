@@ -20,7 +20,17 @@ class Program
             var operation = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
                     .Title("[bold]Choose your Operation[/]?")
-                    .AddChoices(new[] { "Normal Variable", "Array Variable", "Calculator", "Exit" })
+                    .AddChoices(
+                        new[]
+                        {
+                            "Normal Variable",
+                            "Array Variable",
+                            "List Variable",
+                            "Dictionary Variable",
+                            "Calculator",
+                            "Exit",
+                        }
+                    )
             );
 
             switch (operation)
@@ -31,6 +41,12 @@ class Program
 
                 case "Array Variable":
                     printValues.ValueToArray();
+                    break;
+                case "List Variable":
+                    printValues.ValuesToList();
+                    break;
+                case "Dictionary Variable":
+                    printValues.ValuesToDictionary();
                     break;
 
                 case "Calculator":
